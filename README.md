@@ -240,3 +240,21 @@ opening a new issue.
 [GPL](http://www.gnu.org/copyleft/gpl.html "GNU General Public License"),
 version 2 or greater. This software carries no warranty of any kind.
 (See COPYRIGHT for full copyright and warranty notices.)
+
+## Running with Docker
+
+The official Docker images for pandoc can be found at
+<https://github.com/pandoc/dockerfiles> and at
+[dockerhub](https://hub.docker.com/).
+
+The [pandoc/core](https://hub.docker.com/r/pandoc/core)
+image contains `pandoc`.
+
+The [pandoc/latex](https://hub.docker.com/r/pandoc/latex)
+image also contains the minimal LaTeX installation needed
+to produce PDFs using pandoc.
+
+To run pandoc using Docker, converting `README.md` to `README.pdf`:
+
+    docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex README.md -o README.pdf
+
